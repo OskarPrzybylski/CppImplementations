@@ -9,8 +9,11 @@ int main(){
 gMatrix m1(2,2);
 gMatrix m2(2,2);
 gMatrix m4("plik1.txt");
-m2(1,1) = 5;
-cout<< m2(1,1) <<endl;
+cout<< m4 <<endl;
+m4.transpose();
+
+cout<< m4 <<endl;
+
 return 0;
 }
 

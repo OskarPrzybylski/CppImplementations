@@ -47,6 +47,7 @@ friend ostream& operator<<(ostream& s, const gMatrix &m);
 void check(unsigned int row, unsigned int column) const;
 double read(unsigned int row, unsigned int column)const;
 void write(unsigned int row, unsigned int column, double element);
+void transpose();
 
 
 //operator ()
@@ -87,7 +88,6 @@ void assign(const int rows, const int columns, double *ndata);
 //operatorsformatrix
 Matrix& operator=(const Matrix &m);
 bool operator==(const Matrix &m);
-
 
 friend ostream& operator<<(ostream& s, const gMatrix &m);
 

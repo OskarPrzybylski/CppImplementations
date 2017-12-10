@@ -198,6 +198,7 @@ if(this->matrix->rows!=m.matrix->rows && this->matrix->columns!=m.matrix->column
 
 }
 
+
 gMatrix& gMatrix::operator+=(const gMatrix &m){
 
 Matrix *mat = new Matrix(this->matrix->rows, this->matrix->columns);
@@ -270,6 +271,8 @@ if((matrix->rows*matrix->columns)<=(int)index(row, column)) throw outofrange();
 
 }
 
+
+
 double gMatrix::read(unsigned int row, unsigned int column)const{
 return matrix->data[index(row, column)];
 }
@@ -307,7 +310,37 @@ int gMatrix::getRc(){
 return gMatrix::matrix->rc;
 
 }
+//transpose
+void gMatrix::transpose(){
+Matrix *buf = this->matrix;
+double buf1;
+Matrix *mat = new Matrix(this->matrix->columns,this->matrix->rows);
+	mat->assign(this->matrix->columns,this->matrix->rows, this->matrix->data);
+	
+	
+	//this->matrix = mat;
+	int ncolumns = buf->columns;
+	int nrows = buf->rows;
+	
+	for(int i=0;i<nrows;i++){
+		for( int j=0; j<ncolumns;j++){ //j=1 i=0
 
+			
+			mat->data[j*nrows+i]=buf->data[i*ncolumns+j];
+			//if(j==i) break;
+
+
+			
+			
+			
+			
+		}
+	}
+
+if(--matrix->rc == 0) delete this->matrix;
+this->matrix=mat;
+
+}
 
 bool gMatrix::Matrix::operator==(const Matrix &m){
 
@@ -324,6 +357,6 @@ if(this->rows != m.rows || this->columns != m.columns) return false;
 
 unsigned int gMatrix::index(const unsigned int row, const unsigned int column)const{
 
-return matrix->columns*row+column;	
+return matrix->columns*row+column;	//6 4
 }
 
