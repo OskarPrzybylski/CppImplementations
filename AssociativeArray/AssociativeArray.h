@@ -6,7 +6,6 @@ struct Node{
 Node* next;
 std::string key;
 int value;
-kk
 Node(std::string newk, int newv): next(NULL), key(newk), value(newv){}
 };
 

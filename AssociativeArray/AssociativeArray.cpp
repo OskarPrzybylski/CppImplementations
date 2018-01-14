@@ -14,13 +14,11 @@ this->top=NULL;
 }
 
 AssociativeArray::~AssociativeArray(){
-cout<<"HAHAHAHAHA"<<endl;
 this->clear();
 }
 
 
 void AssociativeArray::clear(){
-cout<<"HAHAHAHAHA"<<endl;
 while(this->top){
 
 struct Node* bufor=this->top->next;
